@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<component id="ch.jtde" version="2">
+    <resource path="src/ch/jtde/internal/editors/DateTypeEditor.java" type="ch.jtde.internal.editors.DateTypeEditor$ValueEditor">
+        <filter id="571473929">
+            <message_arguments>
+                <message_argument value="TextCellEditor"/>
+                <message_argument value="ValueEditor"/>
+            </message_arguments>
+        </filter>
+    </resource>
+    <resource path="src/ch/jtde/internal/editors/PrimitiveTypeEditor.java" type="ch.jtde.internal.editors.PrimitiveTypeEditor$ValueEditor">
+        <filter id="571473929">
+            <message_arguments>
+                <message_argument value="TextCellEditor"/>
+                <message_argument value="ValueEditor"/>
+            </message_arguments>
+        </filter>
+    </resource>
+    <resource path="src/ch/jtde/internal/editors/StringBasedTypeEditor.java" type="ch.jtde.internal.editors.StringBasedTypeEditor$ValueEditor">
+        <filter id="571473929">
+            <message_arguments>
+                <message_argument value="TextCellEditor"/>
+                <message_argument value="ValueEditor"/>
+            </message_arguments>
+        </filter>
+    </resource>
+    <resource path="src/ch/jtde/internal/editors/StringEditor.java" type="ch.jtde.internal.editors.StringEditor">
+        <filter id="571519004">
+            <message_arguments>
+                <message_argument value="ch.jtde.internal.editors.StringEditor.initialize(Composite)"/>
+                <message_argument value="TextCellEditor"/>
+            </message_arguments>
+        </filter>
+    </resource>
+</component>

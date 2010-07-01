@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) 2010 M. Hautle.
+ * 
+ * All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this
+ * distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributor: M. Hautle - initial API and implementation
+ */
+package ch.jtde.model;
+
+import org.eclipse.core.runtime.*;
+import org.eclipse.jdt.core.*;
+
+/**
+ * Factory for creating {@link IDataElement}s.<br>
+ * The factory must be stateless.
+ * 
+ * @author M. Hautle
+ */
+public interface IDataElementFactory {
+    /**
+     * Creates the specified type.
+     * 
+     * @param type The type to create
+     * @param pm A progressmonitor or null
+     * @return The type
+     * @throws TechnicalModelException If something went wrong during creation
+     */
+    IDataElement<IAttribute> create(IType type, IProgressMonitor pm) throws TechnicalModelException;
+}

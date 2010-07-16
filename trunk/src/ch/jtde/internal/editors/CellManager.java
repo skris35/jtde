@@ -231,6 +231,8 @@ class CellManager {
         @SuppressWarnings("unchecked")
         protected boolean canEdit(Object element) {
             final IValueElement el = getValueElement(element);
+            if (el == null)
+                return false;
             final ICellEditor editor = getEditor(el.getClass());
             return editor != null && editor.isEditable(el);
         }

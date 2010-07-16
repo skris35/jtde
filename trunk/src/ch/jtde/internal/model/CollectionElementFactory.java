@@ -153,7 +153,7 @@ public class CollectionElementFactory {
         protected IDataElement create(ClassDefinition colType, IType type, IJavaProject proj, IProgressMonitor pm) throws JavaModelException {
             // TODO parse generics type
             final ClassDefinition obj = ClassDefinition.create(Object.class.getName(), ElementCategory.STRUCTURE, proj, pm);
-            return new MapElement(colType, obj, obj);
+            return new MapElement(colType, obj, obj, obj);
         }
     }
 

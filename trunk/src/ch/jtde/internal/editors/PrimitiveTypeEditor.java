@@ -45,7 +45,7 @@ public class PrimitiveTypeEditor<V> implements ICellEditor<V, IValueElement<V>> 
      */
     @Override
     public CellEditor getEditor(IAttribute attribute) {
-        editor.setType(attribute.getLowerBound().getName());
+        editor.setType(attribute.getValue().getType().getName());
         return editor;
     }
 

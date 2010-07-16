@@ -17,6 +17,9 @@ import ch.jtde.model.*;
  * @author M. Hautle
  */
 public class MapElement extends AbstractExtendableDataElement<MapAttribute> {
+    /** Just {@link Object}. */
+    private final ClassDefinition objectType;
+
     /** The type of this element. */
     private final ClassDefinition type;
 
@@ -35,11 +38,13 @@ public class MapElement extends AbstractExtendableDataElement<MapAttribute> {
      * @param type The collection type
      * @param keyType The key type
      * @param valueType The value type
+     * @param objectType Just {@link Object} as type
      */
-    public MapElement(ClassDefinition type, ClassDefinition keyType, ClassDefinition valueType) {
+    public MapElement(ClassDefinition type, ClassDefinition keyType, ClassDefinition valueType, ClassDefinition objectType) {
         this.type = type;
         this.keyType = keyType;
         this.valueType = valueType;
+        this.objectType = objectType;
     }
 
     /**
@@ -83,6 +88,15 @@ public class MapElement extends AbstractExtendableDataElement<MapAttribute> {
      */
     public ClassDefinition getKeyType() {
         return keyType;
+    }
+
+    /**
+     * Returns {@link Object} as type.
+     * 
+     * @return The object type
+     */
+    public ClassDefinition getObjectType() {
+        return objectType;
     }
 
     /**

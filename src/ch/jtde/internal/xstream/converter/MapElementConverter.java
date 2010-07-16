@@ -34,7 +34,7 @@ public class MapElementConverter implements IDataElementConverter<MapElement> {
             final MapAttribute attr = source.getChild(i);
             // entry start
             writer.startNode(entryName);
-            writeElement(attr.getKey(), writer, context);
+            writeElement(attr.getKeyValue(), writer, context);
             writeElement(attr.getValue(), writer, context);
             // entry end
             writer.endNode();

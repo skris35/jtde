@@ -64,13 +64,22 @@ public class MapAttribute extends AbstractAttribute {
     }
 
     /**
-     * Returns the map key.
+     * Returns a element containing the map key as sole attribute.
      * 
      * @return The key
      */
     @SuppressWarnings("unchecked")
     public IDataElement<IAttribute> getKey() {
         return (IDataElement) key;
+    }
+
+    /**
+     * Returns the value of the map key.
+     * 
+     * @return The key value
+     */
+    public IDataElement<IAttribute> getKeyValue() {
+        return key.getValue();
     }
 
     /**
@@ -134,7 +143,7 @@ public class MapAttribute extends AbstractAttribute {
          */
         @Override
         public ClassDefinition getType() {
-            return parent.getType();
+            return parent.getObjectType();
         }
     }
 }

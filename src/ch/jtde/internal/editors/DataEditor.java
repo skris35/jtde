@@ -173,7 +173,7 @@ public class DataEditor extends EditorPart implements IDataEditor, IEditorModelL
      * @return The viewer
      */
     private TableWidget createViewer(Composite parent) {
-        final TableWidget viewer = new TableWidget(parent, SWT.FILL);
+        final TableWidget viewer = new TableWidget(parent, SWT.FILL | SWT.FULL_SELECTION);
         final Table table = viewer.getTable();
         CellManager cellManager = new CellManager(viewer);
         viewer.addColumn("Name", 100);

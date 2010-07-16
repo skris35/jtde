@@ -46,7 +46,7 @@ public class ReferenceAction extends AbstractDataElementAction<IAttribute> {
      */
     @Override
     public <S extends IAttribute> boolean isEnabledFor(IDataElement<S> element, S attribute) {
-        if (attribute == null)
+        if (attribute == null || !super.isEnabledFor(element, attribute))
             return false;
         final ElementCategory cat = attribute.getLowerBound().getCategory();
         return !cat.isArray() && !cat.isPrimitive();

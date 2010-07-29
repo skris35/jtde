@@ -48,7 +48,7 @@ public final class EclipseUtils {
     public static IType showConcreteTypeDialog(Shell shell, IJavaSearchScope scope, String searchText) throws JavaModelException {
         final SelectionDialog d = JavaUI.createTypeDialog(shell, new ProgressMonitorDialog(shell), scope, IJavaElementSearchConstants.CONSIDER_ALL_TYPES,
                 false, searchText);
-        d.setTitle("Select the concreate type");
+        d.setTitle("Select the concrete type");
         d.setMessage("Select a type (* = any string, ? = any char):");
         d.open();
         final Object[] sel = d.getResult();

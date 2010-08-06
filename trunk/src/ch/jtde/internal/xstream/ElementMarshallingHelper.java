@@ -38,7 +38,7 @@ public class ElementMarshallingHelper {
     private static final Map<String, String> PRIMITIVE_TO_WRAPPER = new HashMap<String, String>();
 
     /** The wrapper types - name to class mapping. */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private static final Map<String, Class> WRAPPER_TYPES = new HashMap<String, Class>();
 
     static {

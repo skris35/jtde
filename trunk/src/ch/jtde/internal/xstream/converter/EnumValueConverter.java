@@ -40,7 +40,7 @@ public class EnumValueConverter implements IDataElementConverter<EnumElement> {
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public boolean canConvert(Class type) {
         return EnumElement.class.equals(type);
     }

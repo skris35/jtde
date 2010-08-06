@@ -18,7 +18,7 @@ import org.eclipse.swt.widgets.*;
 import ch.jtde.*;
 import ch.jtde.actions.*;
 import ch.jtde.editors.*;
-import ch.jtde.internal.editors.EditorModel.*;
+import ch.jtde.internal.editors.EditorModel.IEditorModelListener;
 import ch.jtde.internal.utils.*;
 import ch.jtde.model.*;
 
@@ -71,7 +71,7 @@ class ContextMenu implements IMenuListener, ISelectionChangedListener, IEditorMo
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public void menuAboutToShow(IMenuManager manager) {
         // add 'compatible' actions
         for (IDataElementAction a : actions)
@@ -143,6 +143,7 @@ class ContextMenu implements IMenuListener, ISelectionChangedListener, IEditorMo
     @SuppressWarnings("unchecked")
     private class Wrapper extends Action {
         /** The wrapped action */
+        @SuppressWarnings("rawtypes")
         private final IDataElementAction wrapped;
 
         /**
@@ -150,6 +151,7 @@ class ContextMenu implements IMenuListener, ISelectionChangedListener, IEditorMo
          * 
          * @param wrapped The wrapped action
          */
+        @SuppressWarnings("rawtypes")
         Wrapper(IDataElementAction wrapped) {
             super(wrapped.getLabel());
             this.wrapped = wrapped;

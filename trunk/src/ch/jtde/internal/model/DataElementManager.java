@@ -13,7 +13,7 @@ import org.eclipse.core.runtime.*;
 import org.eclipse.jdt.core.*;
 import ch.jtde.internal.utils.*;
 import ch.jtde.model.*;
-import ch.jtde.model.IExtendableDataElement.*;
+import ch.jtde.model.IExtendableDataElement.IExtendableDataElementHandler;
 
 /**
  * {@link IDataElementManager} implementation.
@@ -37,7 +37,7 @@ public final class DataElementManager implements IDataElementManager {
     private final Map<String, IDataElementFactory> superTypeFactories = new HashMap<String, IDataElementFactory>();
 
     /** Explicit type to extend handler mappings. */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private final Map<String, IExtendableDataElementHandler> extendHandler = new HashMap<String, IExtendableDataElementHandler>();
 
     /**
@@ -76,7 +76,7 @@ public final class DataElementManager implements IDataElementManager {
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public <T extends IAttribute> void extend(IExtendableDataElement<T> element) {
         final ClassDefinition type = element.getType();
         // handle arrays

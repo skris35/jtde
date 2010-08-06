@@ -26,7 +26,7 @@ import com.thoughtworks.xstream.mapper.*;
  * @author M. Hautle
  */
 class ElementUnmarshaller extends ReferenceByXPathUnmarshaller implements IElementUnmarshallingContext {
-    /** Property string to retrive the {@link IDataElement} to populate. Call {@link MarshallingContext#get(Object)} to retrive the element. */
+    /** Property string to retrieve the {@link IDataElement} to populate. Call {@link MarshallingContext#get(Object)} to retrive the element. */
     public static final String CURRENT_ELEMENT = "currentElement";
 
     /** The owning adapter. */
@@ -74,7 +74,7 @@ class ElementUnmarshaller extends ReferenceByXPathUnmarshaller implements IEleme
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public <A extends IAttribute, E extends IDataElement<A>> E convertAnother(IDataElement parent, E value) {
         pushElement(value);
         final E res = (E) convertAnother(parent, value.getClass());
@@ -97,7 +97,7 @@ class ElementUnmarshaller extends ReferenceByXPathUnmarshaller implements IEleme
      * 
      * @param element The element
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private void pushElement(IDataElement element) {
         elements.push(element);
     }
@@ -161,7 +161,7 @@ class ElementUnmarshaller extends ReferenceByXPathUnmarshaller implements IEleme
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public Iterator keys() {
         return getDataHolder().keys();
     }

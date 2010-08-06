@@ -47,7 +47,7 @@ class ElementMarshaller extends ReferenceByXPathMarshaller implements IElementMa
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public void start(Object item, DataHolder dataHolder) {
         this.dataHolder = dataHolder;
         if (item == null)
@@ -85,7 +85,7 @@ class ElementMarshaller extends ReferenceByXPathMarshaller implements IElementMa
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public Iterator keys() {
         return getDataHolder().keys();
     }

@@ -32,7 +32,7 @@ public class WrapperTypeValueConverter implements IDataElementConverter<WrapperT
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public WrapperTypeValue<?> unmarshal(HierarchicalStreamReader reader, IElementUnmarshallingContext context) {
         final WrapperTypeValue value = (WrapperTypeValue) context.getCurrentElement();
         final Class type = ElementMarshallingHelper.getWrapperFromName(value.getType().getName());
@@ -44,7 +44,7 @@ public class WrapperTypeValueConverter implements IDataElementConverter<WrapperT
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public boolean canConvert(Class<? extends IDataElement> type) {
         return WrapperTypeValue.class.equals(type);
     }

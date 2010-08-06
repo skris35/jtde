@@ -13,7 +13,7 @@ import java.util.*;
 import org.eclipse.jface.viewers.*;
 import ch.jtde.editors.*;
 import ch.jtde.model.*;
-import ch.jtde.model.IExtendableDataElement.*;
+import ch.jtde.model.IExtendableDataElement.IAttributeChangeListener;
 
 /**
  * The model of {@link DataEditor}.
@@ -41,7 +41,7 @@ class EditorModel implements IStructuredContentProvider {
      * 
      * @param element The element index
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     void stepInto(IDataElement element) {
         path.add(element);
         setCurrentElement(element);
@@ -75,7 +75,6 @@ class EditorModel implements IStructuredContentProvider {
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
     public Object[] getElements(Object inputElement) {
         final int cnt = currentPart.getChildCount();
         final boolean ext = currentPart instanceof IExtendableDataElement;
@@ -93,7 +92,6 @@ class EditorModel implements IStructuredContentProvider {
      * 
      * @return The number of rows
      */
-    @SuppressWarnings("unchecked")
     int getRowCount() {
         final int cnt = currentPart.getChildCount();
         return currentPart instanceof IExtendableDataElement ? cnt + 1 : cnt;
@@ -157,7 +155,7 @@ class EditorModel implements IStructuredContentProvider {
      * 
      * @author M. Hautle
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private class ListenerManager implements PropertyChangeListener, IAttributeChangeListener {
         /** The currently observed element or null. */
         private IDataElement element;

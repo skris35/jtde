@@ -101,7 +101,7 @@ public class MapElementConverter implements IDataElementConverter<MapElement> {
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public boolean canConvert(Class type) {
         return MapElement.class.equals(type);
     }

@@ -57,7 +57,7 @@ public class XStreamAdapter {
      * @param file The destination file
      * @throws IOException If something went wrong
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public void write(IDataElement el, File file) throws IOException {
         FileOutputStream out = null;
         try {
@@ -80,7 +80,7 @@ public class XStreamAdapter {
      * @param in The inputstream
      * @return The contained {@link IDataElement}
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public IDataElement read(InputStream in) {
         try {
             return (IDataElement) stream.fromXML(in);
@@ -164,7 +164,7 @@ public class XStreamAdapter {
          * {@inheritDoc}
          */
         @Override
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings("rawtypes")
         public void alias(String name, Class type) {
             XStreamAdapter.this.alias(name, type.getName());
             super.alias(name, type);
@@ -174,7 +174,7 @@ public class XStreamAdapter {
          * {@inheritDoc}
          */
         @Override
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings("rawtypes")
         public void aliasType(String name, Class type) {
             XStreamAdapter.this.alias(name, type.getName());
             super.aliasType(name, type);

@@ -21,14 +21,14 @@ import com.thoughtworks.xstream.io.*;
  */
 public class DispatchingConverter implements Converter {
     /** The list of converters. */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private List<IDataElementConverter> converters = new ArrayList<IDataElementConverter>();
 
     /**
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public void marshal(Object source, HierarchicalStreamWriter writer, MarshallingContext context) {
         final IDataElementConverter conv = lookupConverterForType((Class<? extends IDataElement>) source.getClass());
         conv.marshal((IDataElement) source, writer, (IElementMarshallingContext) context);
@@ -38,7 +38,7 @@ public class DispatchingConverter implements Converter {
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public Object unmarshal(HierarchicalStreamReader reader, UnmarshallingContext context) {
         final IElementUnmarshallingContext ctx = (IElementUnmarshallingContext) context;
         final Class<? extends IDataElement> type = ctx.getCurrentElement().getClass();
@@ -50,7 +50,7 @@ public class DispatchingConverter implements Converter {
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public boolean canConvert(Class type) {
         return IDataElement.class.isAssignableFrom(type);
     }
@@ -60,7 +60,7 @@ public class DispatchingConverter implements Converter {
      * 
      * @param converter The converter to register
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public void registerConverter(IDataElementConverter converter) {
         converters.add(converter);
     }
@@ -71,7 +71,7 @@ public class DispatchingConverter implements Converter {
      * @param type The type
      * @return The converter
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private IDataElementConverter lookupConverterForType(Class<? extends IDataElement> type) {
         for (IDataElementConverter c : converters)
             if (c.canConvert(type))

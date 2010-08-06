@@ -25,7 +25,7 @@ abstract class AbstractAttribute implements IAttribute, PropertyChangeListener {
     private AttributeState state = AttributeState.DEFINED;
 
     /** The contained value or null. */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private IDataElement value;
 
     /** The constraints. */
@@ -105,7 +105,7 @@ abstract class AbstractAttribute implements IAttribute, PropertyChangeListener {
      * 
      * @param value The value or null
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private void registerValueListener(IDataElement value) {
         if (value instanceof IValueElement)
             ((IValueElement) value).addPropertyChangeListener(this);
@@ -116,7 +116,7 @@ abstract class AbstractAttribute implements IAttribute, PropertyChangeListener {
      * 
      * @param value The value or null
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private void deregisterValueListener(IDataElement value) {
         if (value instanceof IValueElement)
             ((IValueElement) value).removePropertyChangeListener(this);

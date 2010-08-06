@@ -90,7 +90,7 @@ public class CollectionElementFactory {
          * @return The element
          * @throws JavaModelException If something went wrong
          */
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings("rawtypes")
         protected abstract IDataElement create(ClassDefinition colType, IType type, IJavaProject proj, IProgressMonitor pm) throws JavaModelException;
 
         /**
@@ -122,7 +122,7 @@ public class CollectionElementFactory {
          * {@inheritDoc}
          */
         @Override
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings("rawtypes")
         protected IDataElement create(ClassDefinition colType, IType type, IJavaProject proj, IProgressMonitor pm) throws JavaModelException {
             // TODO parse generics type
             final ClassDefinition obj = ClassDefinition.create(Object.class.getName(), ElementCategory.STRUCTURE, proj, pm);
@@ -149,7 +149,7 @@ public class CollectionElementFactory {
          * {@inheritDoc}
          */
         @Override
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings("rawtypes")
         protected IDataElement create(ClassDefinition colType, IType type, IJavaProject proj, IProgressMonitor pm) throws JavaModelException {
             // TODO parse generics type
             final ClassDefinition obj = ClassDefinition.create(Object.class.getName(), ElementCategory.STRUCTURE, proj, pm);
@@ -176,7 +176,7 @@ public class CollectionElementFactory {
          * {@inheritDoc}
          */
         @Override
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings("rawtypes")
         protected IDataElement create(ClassDefinition colType, IType type, IJavaProject proj, IProgressMonitor pm) {
             // TODO parse generics type
             return new CollectionElement(colType, ClassDefinition.create(Object.class.getName(), ElementCategory.STRUCTURE, proj, pm));

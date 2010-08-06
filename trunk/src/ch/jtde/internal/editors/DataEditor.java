@@ -26,12 +26,12 @@ import org.eclipse.ui.part.*;
 import org.eclipse.ui.progress.*;
 import ch.jtde.*;
 import ch.jtde.editors.*;
-import ch.jtde.internal.editors.EditorModel.*;
+import ch.jtde.internal.editors.EditorModel.IEditorModelListener;
 import ch.jtde.internal.search.*;
 import ch.jtde.internal.utils.*;
 import ch.jtde.internal.xstream.*;
 import ch.jtde.model.*;
-import ch.jtde.model.IExtendableDataElement.*;
+import ch.jtde.model.IExtendableDataElement.IExtendableDataElementHandler;
 
 /**
  * Editor for {@link IDataElement} structures.
@@ -212,6 +212,7 @@ public class DataEditor extends EditorPart implements IDataEditor, IEditorModelL
      * 
      * @param parent The parent element
      */
+    @SuppressWarnings("unused")
     private void createButtonPanel(Composite parent) {
         buttonPanel = new Composite(parent, SWT.BORDER_SOLID);
         buttonPanel.setLayoutData(new GridData(SWT.FILL, SWT.DEFAULT, true, false));
@@ -269,7 +270,7 @@ public class DataEditor extends EditorPart implements IDataEditor, IEditorModelL
             final IWorkbenchSiteProgressService s = getProgressService();
             s.run(true, false, new IRunnableWithProgress() {
                 @Override
-                @SuppressWarnings("unchecked")
+                @SuppressWarnings({ "unchecked", "rawtypes" })
                 public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
                     Activator.getElementManager().extend((IExtendableDataElement) model.getCurrentElement());
                 }
@@ -408,7 +409,6 @@ public class DataEditor extends EditorPart implements IDataEditor, IEditorModelL
      * 
      * @param attr The attribute in which to step
      */
-    @SuppressWarnings("unchecked")
     private void stepInto(IAttribute attr) {
         final IDataElement<IAttribute> value = attr.getValue();
         if (value == null || value instanceof IValueElement)

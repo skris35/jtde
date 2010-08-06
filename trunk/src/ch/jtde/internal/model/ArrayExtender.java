@@ -9,9 +9,9 @@
 package ch.jtde.internal.model;
 
 import org.eclipse.jdt.core.*;
-import ch.jtde.internal.model.PrimitiveValue.*;
+import ch.jtde.internal.model.PrimitiveValue.Type;
 import ch.jtde.model.*;
-import ch.jtde.model.IExtendableDataElement.*;
+import ch.jtde.model.IExtendableDataElement.IExtendableDataElementHandler;
 
 /**
  * {@link IExtendableDataElementHandler} for arrays.<br>
@@ -24,7 +24,7 @@ class ArrayExtender implements IExtendableDataElementHandler<IndexCollectionElem
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public void extendDataElement(IndexCollectionElement element) {
         final IndexCollectionAttribute attr = element.add();
         // create the attribute content for primitive type arrays.

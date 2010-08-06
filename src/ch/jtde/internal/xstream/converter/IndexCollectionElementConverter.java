@@ -11,7 +11,7 @@ package ch.jtde.internal.xstream.converter;
 import static ch.jtde.internal.xstream.ElementMarshallingHelper.*;
 import org.eclipse.jdt.core.*;
 import ch.jtde.internal.model.*;
-import ch.jtde.internal.model.PrimitiveValue.*;
+import ch.jtde.internal.model.PrimitiveValue.Type;
 import ch.jtde.model.*;
 import ch.jtde.xstream.*;
 import com.thoughtworks.xstream.core.util.*;
@@ -113,7 +113,7 @@ public class IndexCollectionElementConverter implements IDataElementConverter<In
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public boolean canConvert(Class<? extends IDataElement> type) {
         return IndexCollectionElement.class.equals(type);
     }

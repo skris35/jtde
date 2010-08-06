@@ -187,6 +187,7 @@ public class ReferenceAction extends AbstractDataElementAction<IAttribute> {
         @Override
         @SuppressWarnings("unchecked")
         public Object[] getElements(Object inputElement) {
+            @SuppressWarnings("rawtypes")
             final IDataElement root = (IDataElement) inputElement;
             final ElementAttribute attr = new ElementAttribute(root.getType(), "/", "");
             attr.setValue(root);

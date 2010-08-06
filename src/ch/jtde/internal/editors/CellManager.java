@@ -13,7 +13,7 @@ import org.eclipse.jface.viewers.*;
 import org.eclipse.swt.graphics.*;
 import org.eclipse.swt.widgets.*;
 import ch.jtde.editors.*;
-import ch.jtde.internal.model.PrimitiveValue.*;
+import ch.jtde.internal.model.PrimitiveValue.Type;
 import ch.jtde.internal.utils.*;
 import ch.jtde.model.*;
 
@@ -33,7 +33,7 @@ class CellManager {
     private final Editor editor;
 
     /** The already initialized editors. */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private Map<Class, ICellEditor> editorChache = new HashMap<Class, ICellEditor>();
 
     /**
@@ -71,7 +71,7 @@ class CellManager {
      * @param type The element type
      * @return The editor or null
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private <E extends IValueElement> ICellEditor getEditor(Class<E> type) {
         ICellEditor ed = editorChache.get(type);
         if (ed == null) {
@@ -103,7 +103,7 @@ class CellManager {
          * {@inheritDoc}
          */
         @Override
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings("rawtypes")
         public String getColumnText(Object element, int columnIndex) {
             final IAttribute row = ((IAttribute) element);
             switch (columnIndex) {
@@ -159,7 +159,7 @@ class CellManager {
          * @param val The value
          * @return The string representation
          */
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings({ "rawtypes", "unchecked" })
         private String getStringRepresentation(IValueElement val) {
             final ICellEditor ed = getEditor(val.getClass());
             if (ed != null)
@@ -173,7 +173,7 @@ class CellManager {
          * @param val The value
          * @return The string representation
          */
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings("rawtypes")
         private String getFallBackString(IValueElement val) {
             final Object cont = (val).getValue();
             return cont != null ? cont.toString() : ICellEditor.NULL_REPRESANTATION;
@@ -228,7 +228,7 @@ class CellManager {
          * {@inheritDoc}
          */
         @Override
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings({ "rawtypes", "unchecked" })
         protected boolean canEdit(Object element) {
             final IValueElement el = getValueElement(element);
             if (el == null)
@@ -241,7 +241,7 @@ class CellManager {
          * {@inheritDoc}
          */
         @Override
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings("rawtypes")
         protected CellEditor getCellEditor(Object element) {
             final IAttribute attr = (IAttribute) element;
             final IDataElement<IAttribute> val = attr.getValue();
@@ -261,7 +261,7 @@ class CellManager {
          * {@inheritDoc}
          */
         @Override
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings({ "unchecked", "rawtypes" })
         protected void setValue(Object element, Object value) {
             final IValueElement val = getValueElement(element);
             if (val != null)
@@ -275,7 +275,7 @@ class CellManager {
          * @param attr The attribute
          * @return The element or null if no {@link IValueElement} is present
          */
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings("rawtypes")
         private IValueElement getValueElement(Object attr) {
             final IDataElement<IAttribute> val = ((IAttribute) attr).getValue();
             if (!(val instanceof IValueElement))

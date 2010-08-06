@@ -40,7 +40,7 @@ public class DateValueConverter implements IDataElementConverter<DateValue> {
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public boolean canConvert(Class type) {
         return DateValue.class.equals(type);
     }

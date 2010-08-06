@@ -63,7 +63,7 @@ public class CollectionElementConverter implements IDataElementConverter<Collect
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public boolean canConvert(Class<? extends IDataElement> type) {
         return CollectionElement.class.equals(type);
     }

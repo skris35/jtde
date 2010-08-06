@@ -43,6 +43,6 @@ public interface IDataElementConverter<E extends IDataElement<? extends IAttribu
      * @param type the Class representing the object type to be converted
      * @return True if the given type is supported
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     boolean canConvert(Class<? extends IDataElement> type);
 }

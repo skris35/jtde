@@ -30,7 +30,7 @@ public class PrimitiveValueConverter implements IDataElementConverter<PrimitiveV
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public PrimitiveValue<?> unmarshal(HierarchicalStreamReader reader, IElementUnmarshallingContext context) {
         final PrimitiveValue value = (PrimitiveValue) context.getCurrentElement();
         final Class<?> type = value.getWrapperType().getWrapperType();
@@ -42,7 +42,7 @@ public class PrimitiveValueConverter implements IDataElementConverter<PrimitiveV
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public boolean canConvert(Class type) {
         return PrimitiveValue.class.equals(type);
     }

@@ -27,7 +27,7 @@ public interface IElementUnmarshallingContext extends UnmarshallingContext {
      * @param value The value to populate
      * @return The populated value (may be an other instance than the passed one!)
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     <A extends IAttribute, E extends IDataElement<A>> E convertAnother(IDataElement parent, E value);
 
     /**

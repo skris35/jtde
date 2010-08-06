@@ -40,7 +40,7 @@ public class StringValueConverter implements IDataElementConverter<StringValue> 
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public boolean canConvert(Class type) {
         return StringValue.class.equals(type);
     }

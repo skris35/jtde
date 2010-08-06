@@ -44,7 +44,7 @@ public class ExtensionPointHelper {
      * @param type The element type
      * @return The editor or null if none registred for the type
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public static <E extends IValueElement> ICellEditor getEditorInstanceFor(Class<E> type) {
         final String name = type.getName();
         try {
@@ -65,7 +65,7 @@ public class ExtensionPointHelper {
      * 
      * @return The instances
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public static List<ActionEntry> getActionInstances() {
         final List<ActionEntry> res = new ArrayList<ActionEntry>();
         try {
@@ -144,7 +144,7 @@ public class ExtensionPointHelper {
      * 
      * @author M. Hautle
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public static class ActionEntry {
         /** The type on which to regiser. */
         private final String type;

@@ -77,7 +77,7 @@ public class DataElementConverter implements IDataElementConverter<DataElement> 
      * @param concreteType The fully qualified name of the concrete type or null
      * @param context The context
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private void createAttributeContent(IDataElement parent, IAttribute attr, String concreteType, IElementUnmarshallingContext context) {
         final ClassDefinition lowerBound = attr.getLowerBound();
         final IDataElement<IAttribute> el;
@@ -106,8 +106,8 @@ public class DataElementConverter implements IDataElementConverter<DataElement> 
             IElementUnmarshallingContext context) {
         // resolve the concrete type if one was defined
         if (concreteType == null || concreteType.length() == 0)
-            return ElementMarshallingHelper.<A, E> createElement(lowerBound.getType(), ElementCategory.PRIMITIVE_ARRAY == lowerBound.getCategory(), lowerBound
-                    .getDimensions());
+            return ElementMarshallingHelper.<A, E> createElement(lowerBound.getType(), ElementCategory.PRIMITIVE_ARRAY == lowerBound.getCategory(),
+                    lowerBound.getDimensions());
         return ElementMarshallingHelper.<A, E> createElement(concreteType, context);
     }
 
@@ -131,7 +131,7 @@ public class DataElementConverter implements IDataElementConverter<DataElement> 
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public boolean canConvert(Class type) {
         return DataElement.class.equals(type);
     }

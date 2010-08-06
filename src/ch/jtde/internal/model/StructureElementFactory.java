@@ -13,7 +13,7 @@ import org.eclipse.core.runtime.*;
 import org.eclipse.jdt.core.*;
 import org.eclipse.jdt.core.util.*;
 import ch.jtde.*;
-import ch.jtde.internal.model.PrimitiveValue.*;
+import ch.jtde.internal.model.PrimitiveValue.Type;
 import ch.jtde.model.*;
 
 /**
@@ -41,7 +41,7 @@ public class StructureElementFactory implements IDataElementFactory {
      * @return The created type
      * @throws JavaModelException If something went wrong
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private IDataElement<IAttribute> create0(IType type, IProgressMonitor pm) throws JavaModelException {
         final IJavaProject project = type.getJavaProject();
         final DataElement el = new DataElement(ClassDefinition.create(type, ElementCategory.STRUCTURE));
@@ -81,8 +81,8 @@ public class StructureElementFactory implements IDataElementFactory {
                 break;
             case Signature.CLASS_TYPE_SIGNATURE:
                 final IType fType = resolveType(sig, parentType, pm);
-                attr = element.defineAttribute(name, ClassDefinition.create(fType, Activator.getElementManager().getTypeCategory(fType, pm)), parentType
-                        .getFullyQualifiedName());
+                attr = element.defineAttribute(name, ClassDefinition.create(fType, Activator.getElementManager().getTypeCategory(fType, pm)),
+                        parentType.getFullyQualifiedName());
                 break;
             case Signature.ARRAY_TYPE_SIGNATURE:
                 ClassDefinition ttype = getElementType(sig, parentType, pm);

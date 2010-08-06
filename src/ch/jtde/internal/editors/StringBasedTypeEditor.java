@@ -15,7 +15,7 @@ import java.util.*;
 import org.eclipse.jface.viewers.*;
 import org.eclipse.swt.widgets.*;
 import ch.jtde.editors.*;
-import ch.jtde.internal.model.PrimitiveValue.*;
+import ch.jtde.internal.model.PrimitiveValue.Type;
 import ch.jtde.model.*;
 
 /**
@@ -132,6 +132,7 @@ public class StringBasedTypeEditor<V> implements ICellEditor<V, IValueElement<V>
         /**
          * {@inheritDoc}
          */
+        @SuppressWarnings("unused")
         @Override
         public boolean isValid(String value) {
             if (value.isEmpty())

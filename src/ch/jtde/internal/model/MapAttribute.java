@@ -44,7 +44,7 @@ public class MapAttribute extends AbstractAttribute {
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     public String getName() {
         final IDataElement<IAttribute> val = key.getValue();
         if (val == null)
@@ -68,7 +68,7 @@ public class MapAttribute extends AbstractAttribute {
      * 
      * @return The key
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public IDataElement<IAttribute> getKey() {
         return (IDataElement) key;
     }

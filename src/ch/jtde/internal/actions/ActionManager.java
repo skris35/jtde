@@ -13,7 +13,7 @@ import org.eclipse.core.runtime.*;
 import org.eclipse.jdt.core.*;
 import ch.jtde.actions.*;
 import ch.jtde.internal.utils.*;
-import ch.jtde.internal.utils.ExtensionPointHelper.*;
+import ch.jtde.internal.utils.ExtensionPointHelper.ActionEntry;
 import ch.jtde.model.*;
 
 /**
@@ -26,18 +26,18 @@ public class ActionManager implements IActionManager {
     private static final String OBJECT_NAME = Object.class.getName();
 
     /** Explicit type to action mappings. */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private final Map<String, List<IDataElementAction>> typeActions = new HashMap<String, List<IDataElementAction>>();
 
     /** Type hierarchie to action mapping. */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private final Map<String, List<IDataElementAction>> superTypeActions = new HashMap<String, List<IDataElementAction>>();
 
     /**
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public <T extends IAttribute> List<IDataElementAction<T>> getTypeActions(IType type, IProgressMonitor pm) throws JavaModelException {
         final Set<IDataElementAction> actions = new HashSet<IDataElementAction>();
         append(type.getFullyQualifiedName(), typeActions, actions);
@@ -54,7 +54,7 @@ public class ActionManager implements IActionManager {
      * @param action The action to add
      * @param actionMap The map where to add the action
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private void add(String name, IDataElementAction action, Map<String, List<IDataElementAction>> actionMap) {
         List<IDataElementAction> res = actionMap.get(name);
         if (res == null)
@@ -71,7 +71,7 @@ public class ActionManager implements IActionManager {
      * @param h The type hierarchy to search throug
      * @throws JavaModelException If something went wrong
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private void appendSuperTypeActions(IType type, final Set<IDataElementAction> res, final ITypeHierarchy h) throws JavaModelException {
         for (IType t : h.getSupertypes(type)) {
             append(t.getFullyQualifiedName(), superTypeActions, res);
@@ -89,9 +89,9 @@ public class ActionManager implements IActionManager {
      * @param actionMap The action map
      * @param res The list where to append the actions
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private void append(String name, Map<String, List<IDataElementAction>> actionMap, Set<IDataElementAction> res) {
-        final List list = actionMap.get(name);
+        final List<IDataElementAction> list = actionMap.get(name);
         if (list != null && list.size() > 0)
             res.addAll(list);
     }

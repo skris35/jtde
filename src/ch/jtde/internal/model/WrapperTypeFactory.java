@@ -22,7 +22,7 @@ public class WrapperTypeFactory implements IDataElementFactory {
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public IDataElement<IAttribute> create(IType type, IProgressMonitor pm) throws TechnicalModelException {
         return new WrapperTypeValue(ClassDefinition.create(type, ElementCategory.VALUE));
     }

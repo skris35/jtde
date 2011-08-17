@@ -130,5 +130,8 @@
       <converter
             name="ch.jtde.internal.xstream.converter.DateValueConverter">
       </converter>
+      <converter
+            name="ch.jtde.internal.xstream.converter.StringBasedValueConverter">
+      </converter>
    </extension>
 </plugin>

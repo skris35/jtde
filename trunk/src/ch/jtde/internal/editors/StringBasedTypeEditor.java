@@ -29,8 +29,8 @@ public class StringBasedTypeEditor<V> implements ICellEditor<V, IValueElement<V>
     private static Map<String, InputValidator> VALIDATORS = new HashMap<String, InputValidator>();
 
     static {
-        VALIDATORS.put(BigDecimal.class.getName(), new NumberInputValidator(true));
-        VALIDATORS.put(BigInteger.class.getName(), new NumberInputValidator(false));
+        VALIDATORS.put(BigDecimal.class.getName(), new NumberInputValidator(false));
+        VALIDATORS.put(BigInteger.class.getName(), new NumberInputValidator(true));
         VALIDATORS.put(File.class.getName(), new RegexInputValidator(".+"));
         VALIDATORS.put(URL.class.getName(), new URLValidator());
     }

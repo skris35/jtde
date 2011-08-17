@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Java Test Data Editor
 Bundle-SymbolicName: ch.jtde; singleton:=true
-Bundle-Version: 0.0.2.qualifier
+Bundle-Version: 0.0.3.qualifier
 Bundle-Activator: ch.jtde.Activator
 Bundle-Vendor: msoftch
 Require-Bundle: org.eclipse.ui,

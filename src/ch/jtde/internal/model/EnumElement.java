@@ -25,9 +25,18 @@ public class EnumElement extends AbstractValueElement<String> {
      * Default constructor.
      * 
      * @param type The enum type
+     * @throws TechnicalModelException If a error occurred while resolving the default enum constant
      */
-    EnumElement(ClassDefinition type) {
+    EnumElement(ClassDefinition type) throws TechnicalModelException {
         super(type);
+        try {
+            final List<String> constants = getConstants();
+            if (constants.isEmpty())
+                throw new IllegalArgumentException("The enum " + getType().getName() + " contains no entries!");
+            value = constants.get(0);
+        } catch (JavaModelException e) {
+            throw new TechnicalModelException("Error while resolving default enum value", e);
+        }
     }
 
     /**
@@ -43,6 +52,8 @@ public class EnumElement extends AbstractValueElement<String> {
      */
     @Override
     public void setValue(String value) {
+        if (value == null)
+            throw new IllegalArgumentException("Null values not supported!");
         this.value = fireValueChanged(this.value, value);
     }
 

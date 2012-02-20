@@ -8,7 +8,7 @@
  */
 package ch.jtde.internal.model;
 
-import ch.jtde.internal.model.PrimitiveValue.*;
+import ch.jtde.internal.model.PrimitiveValue.Type;
 import ch.jtde.model.*;
 
 /**
@@ -45,6 +45,8 @@ public class WrapperTypeValue<V> extends AbstractValueElement<V> {
      */
     @Override
     public void setValue(V value) {
+        if (value == null)
+            throw new IllegalArgumentException("Null values not supported!");
         this.value = fireValueChanged(this.value, value);
     }
 }

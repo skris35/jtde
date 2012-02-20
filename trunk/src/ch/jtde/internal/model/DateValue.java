@@ -48,6 +48,8 @@ public class DateValue extends AbstractValueElement<String> {
      */
     @Override
     public void setValue(String value) {
+        if (value == null)
+            throw new IllegalArgumentException("Null values not supported!");
         this.value = fireValueChanged(this.value, value);
     }
 }

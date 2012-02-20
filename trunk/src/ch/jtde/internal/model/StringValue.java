@@ -17,13 +17,13 @@ import ch.jtde.model.*;
  */
 public class StringValue extends AbstractValueElement<String> {
     /** The value. */
-    private String value;
+    private String value = "";
 
     /**
      * Default constructor.
      * 
      * @param type Concrete String representation class as {@link ClassDefinition}
-     * @throws TechnicalModelException If an technical error occoured
+     * @throws TechnicalModelException If an technical error occurred
      */
     StringValue(ClassDefinition type) throws TechnicalModelException {
         super(type);
@@ -42,6 +42,8 @@ public class StringValue extends AbstractValueElement<String> {
      */
     @Override
     public void setValue(String value) {
+        if (value == null)
+            throw new IllegalArgumentException("Null values not supported!");
         this.value = fireValueChanged(this.value, value);
     }
 }

@@ -53,6 +53,8 @@ public class PrimitiveValue<V> extends AbstractValueElement<V> {
      */
     @Override
     public void setValue(V value) {
+        if (value == null)
+            throw new IllegalArgumentException("Null values not supported!");
         this.value = fireValueChanged(this.value, value);
     }
 
